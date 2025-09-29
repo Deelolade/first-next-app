@@ -11,8 +11,7 @@ const Herosection = () => {
  const heroText = useRef();
  const heroImage = useRef();
 
-useGSAP(() => {
-    const tl = gsap.timeline({
+const tl = gsap.timeline({
   scrollTrigger: {
     trigger: heroText.current,
     start: "top center",
@@ -23,41 +22,32 @@ useGSAP(() => {
     pinSpacing: true,
   },
 });
+
+useGSAP(() => {
   let ctx = gsap.context(() => {
     // Keep hero-text centered & fixed
-    gsap.set(heroText.current, {
+    gsap.set(".hero-text", {
       position: "fixed",
       top: "50%",
       left: "50%",
       transform: "translate(-50%, -50%)",
     });
 
-        // --- Phase 1: image scales in under text ---
-      tl.fromTo(
-        ".image-one",
-        { scale: 1 },
-        { scale: 1.8, ease: "none", duration: 1 }
-      )
-
-      // --- Phase 2: once scaled, text + image exit together ---
-        .to(
-          heroText.current.querySelectorAll("h1, h3, p"),
-          {
-            color: "#ffffff",
-            y: -200,
-            ease: "none",
-            duration: 1,
-          }
-        )
-        .to(
-          ".image-one",
-          {
-            y: -200,
-            ease: "none",
-            duration: 1,
-          },
-          "<" // sync with text exit
-        );
+    // Animate image-one
+    tl.from(".image-one", {
+      scale: 1,
+      ease: "none",
+      duration: 1,
+    }).to(".image-one", {
+      scale: 1.8,
+      ease: "none",
+      duration: 1,
+    })
+     .to(heroText.current.querySelectorAll( 'h1, h3, p'), {
+      color: "#ffffff", // change to white (or any color you want)
+      duration: 1,
+      ease: "none",
+  }, '<');
 
 });
   return () => ctx.revert(); // cleanup
