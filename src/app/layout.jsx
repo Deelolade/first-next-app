@@ -8,9 +8,9 @@ const roboto = Roboto({
 
 export default function Layout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="winter">
       <head />
-      <body className={roboto.className}>
+      <body >
         {children}
       </body>
     </html>
