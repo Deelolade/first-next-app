@@ -4,8 +4,8 @@ import React from 'react'
 const Header = () => {
   return (
     <div>
-        <header>
-            <nav className='flex justify-between items-center px-8 h-[8vh]'>
+        <header className='fixed w-full z-50'>
+            <nav className='flex justify-between items-center px-8 h-[8vh] '>
                 <div className=" flex ">
                     <h1 className='text-xl font-semibold'>Deelolade</h1>
                 </div>

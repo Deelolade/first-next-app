@@ -34,18 +34,26 @@ useGSAP(() => {
     });
 
     // Animate image-one
-    tl.from(".image-one", {
+    tl
+    .from(".image-one", {
       scale: 1,
       ease: "none",
       duration: 1,
-    }).to(".image-one", {
-      scale: 1.8,
+    })
+    .to(".image-one", {
+    //   scale: 1.8,
       ease: "none",
       duration: 1,
-    })
+    }, '<')
+    .to(heroText.current,{
+        y:-900,
+      ease: "none",
+
+    }, '<')
      .to(heroText.current.querySelectorAll( 'h1, h3, p'), {
+        y:-300,
       color: "#ffffff", // change to white (or any color you want)
-      duration: 1,
+    //   duration: 1,
       ease: "none",
   }, '<');
 
@@ -73,15 +81,18 @@ useGSAP(() => {
             </div>
           </div>
         </section>
-        <section className="min-h-screen h-[200vh] flex justify-center items-start ">
+        <section className="  flex justify-center items-start ">
           <div className="max-w-fit">
             <Image
               src={imageOne}
                 alt="image-one"
                 ref={heroImage}
-              className="image-one max-w-[100vw] w-screen h-[440px] object-cover"
+              className="image-one max-w-[100vw] bg-blue-400 w-screen h-[440px] object-cover"
             />
           </div>
+        </section>
+        <section className="min-h-screen flex justify-center items-center ">
+
         </section>
       </main>
     </>
