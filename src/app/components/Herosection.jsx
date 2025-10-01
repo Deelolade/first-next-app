@@ -15,7 +15,7 @@ const Herosection = () => {
         const tl = gsap.timeline({
             scrollTrigger:{
                 trigger: heroImage.current,
-                start: ' 100% 90%',
+                start: ' 100% 50%',
                 end: ' 30% 60%',
                 scrub: true,
                 markers: true,
