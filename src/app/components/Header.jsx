@@ -4,7 +4,7 @@ import React from 'react'
 const Header = () => {
   return (
     <div>
-        <header className='fixed w-full z-50'>
+        <header className='fixed w-full z-50 bg-white/20 backdrop-blur-0'>
             <nav className='flex justify-between items-center px-8 h-[8vh] '>
                 <div className=" flex ">
                     <h1 className='text-xl font-semibold'>Deelolade</h1>
